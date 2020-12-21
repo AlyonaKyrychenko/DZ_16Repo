@@ -24,7 +24,7 @@
     public delegate void DelegateShow(bool res);
 
     /// <summary>
-    /// This id start of the programm.
+    /// This is start of the programm.
     /// </summary>
     public class Program
     {
@@ -34,11 +34,10 @@
         /// <param name="args">Some args.</param>
         public static void Main(string[] args)
         {
-            DelegatePow del = Class1.Pow;
-            Class2 ob = new Class2();
-            DelegateDevide calc = ob.Calc(del, 3, 10);
-            bool rez = calc.Invoke(6);
-            Show(rez);
+            var a = new A();
+            var b = new B();
+            b.ShowHandler = Show;
+            b.ShowHandler(a.Calc(b.PowHandler, 2, 3).Invoke(2));
         }
 
         /// <summary>
